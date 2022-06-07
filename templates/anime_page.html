@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'user_page.html' %}
+    <meta charset="UTF-8">
+    {% block name %}
+        <title>Изменение данных</title>
+    {% endblock %}
+</head>
+<body>
+{% block something %}
+    <h1></h1>
+    <h1></h1>
+    <div class="container" id="product-section">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ anime.image.url }}" class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        {% if anime.name %}
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Название</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{ anime.name }}
+                                </div>
+
+                            </div>
+                            <hr>
+                        {% endif %}
+                        {% if anime.status %}
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Статус</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{ anime.status }}
+                                </div>
+                            </div>
+                            <hr>
+                        {% endif %}
+                        {% if anime.about %}
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Синопсис</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    {{ anime.about }}
+                                </div>
+                            </div>
+                            <hr>
+                        {% endif %}
+                        {% if anime.trailer %}
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Трейлер</h6>
+                                </div>
+                                <h1></h1>
+                                <h1></h1>
+                                <video>
+                                    <source src=" {{ anime.trailer.url }}" type="video/mp4">
+                                </video>
+                            </div>
+                            <hr>
+                        {% endif %}
+
+                        <a href="{% url 'add' anime.pk %}" class="btn btn-primary">Просмотренно</a>
+
+                    </div>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div>
+{% endblock %}
+</body>
+</html>

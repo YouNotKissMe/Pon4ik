@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'user_page.html' %}
+    {% load static %}
+    <meta charset="UTF-8">
+    {% block name %}
+        <title>Изменение данных</title>
+    {% endblock %}
+</head>
+<body>
+{% block search %}
+    <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Кто потерялся ?" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" >Поиск</button>
+
+                </form>
+{% endblock %}
+{% block something %}
+
+    <h1></h1>
+    <h1></h1>
+    <div class="container">
+<div class="row flow-offset-1">
+<div class="col-xs-6 col-md-4" style="width: 18rem;">
+        <h1>Жанры:</h1>
+    {% for c in genre %}
+<li class="selected" >
+<a href="{% url 'genre_page' c.pk %}">{{ c.genre }}</a>
+</li>
+{% endfor %}
+    <h1>Статус:</h1>
+        {% for a in an %}
+<li class="selected" >
+<a href="{% url 'an_page' a.pk %}">{{ a.an }}</a>
+</li>
+{% endfor %}
+    <h1>Тип:</h1>
+        {% for c in type %}
+<li class="selected" >
+<a href="{% url 'type_page' c.pk %}">{{ c.type }}</a>
+</li>
+{% endfor %}
+</div>
+
+
+            {% for i in anime %}
+                <div class="col-xs-6 col-md-4" style="width: 18rem;">
+                    <img src="{{ i.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ i.name }}</h5>
+                        <a href="{% url 'anime_page' i.pk %}" class="btn btn-primary">Посмотреть</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,1 @@
+default_app_config = 'anime4nik.apps.Anime4NikConfig'
